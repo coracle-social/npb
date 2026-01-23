@@ -135,10 +135,6 @@ export class Connection {
       return this.send(["OK", event.id, false, "Invalid signature"]);
     }
 
-    if (event.pubkey !== this.auth.event?.pubkey) {
-      return this.send(["OK", event.id, false, "Event not authorized"]);
-    }
-
     try {
       if (event.kind === DELETE) {
         await this.handleDelete(event);
