@@ -21,20 +21,24 @@ const createListener = (alert: Alert) => {
     signal,
     onEvent: async (event, relay) => {
       if (!matchFilters(ignore, event)) {
+        console.log(`Forwarding event ${event.id}`)
+
         const id = event.id
-        const json = JSON.stringify(event)
-        const payload = await signer.nip44.encrypt(alert.pubkey, json)
+        const pubkey = await signer.getPubkey()
+        const payload = await signer.nip44.encrypt(alert.pubkey, JSON.stringify(event))
+
         const res = await fetch(callback, {
           method: "POST",
-          body: JSON.stringify({id, relay, payload}),
+          body: JSON.stringify({id, relay, pubkey, payload}),
           headers: {
             "Content-Type": "application/json",
           },
         });
 
         if (!res.ok) {
-          removeListener(alert)
           deleteAlertByAddress(alert.address)
+          removeListener(alert)
+
         }
       }
     },

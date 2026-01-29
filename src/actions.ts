@@ -22,8 +22,6 @@ export type ProcessDeleteParams = Pick<Alert, "event">;
 export const processDelete = instrument(
   "actions.processDelete",
   async ({ event }: ProcessDeleteParams) => {
-    console.log("Processing delete", event.tags)
-
     for (const address of getTagValues("a", event.tags)) {
       const [kind, pubkey] = address.split(":");
 
