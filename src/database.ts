@@ -140,16 +140,14 @@ export async function insertAlert(event: SignedEvent) {
 export const deleteAlertByAddress = instrument(
   "database.deleteAlertByAddress",
   async (address: string) => {
-    return parseAlert(
-      await get(`DELETE FROM alerts WHERE address = ?`, [address]),
-    );
+    await get(`DELETE FROM alerts WHERE address = ?`, [address]);
   },
 );
 
 export const deleteAlertById = instrument(
   "database.deleteAlertById",
   async (id: string) => {
-    return parseAlert(await get(`DELETE FROM alerts WHERE id = ?`, [id]));
+    await get(`DELETE FROM alerts WHERE id = ?`, [id]);
   },
 );
 

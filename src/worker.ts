@@ -1,4 +1,4 @@
-import { parseJson, removeUndefined } from "@welshman/lib";
+import { assoc, parseJson, removeUndefined } from "@welshman/lib";
 import { request } from "@welshman/net";
 import {
   getTagValues,
@@ -15,8 +15,10 @@ const createListener = (alert: Alert) => {
   const { tags } = alert.event;
   const callback = getTagValue("callback", tags)!;
   const relays = getTagValues("relay", tags).map(normalizeRelayUrl);
-  const filters = removeUndefined(getTagValues("filter", tags).map(parseJson));
   const ignore = removeUndefined(getTagValues("ignore", tags).map(parseJson));
+  const filters = removeUndefined(
+    getTagValues("filter", tags).map(parseJson),
+  ).map(assoc("limit", 0));
   const controller = new AbortController();
   const { signal } = controller;
 
