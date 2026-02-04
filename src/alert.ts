@@ -8,5 +8,4 @@ export type Alert = {
   pubkey: string;
   created_at: number;
   event: SignedEvent;
-  tags: string[][];
 };

@@ -4,12 +4,12 @@ import { Alert, ALERT } from "./alert.js";
 import * as worker from "./worker.js";
 import * as db from "./database.js";
 
-export type AddAlertParams = Pick<Alert, "event" | "tags">;
+export type AddAlertParams = Pick<Alert, "event">;
 
 export const addAlert = instrument(
   "actions.addAlert",
-  async ({ event, tags }: AddAlertParams) => {
-    const alert = await db.insertAlert(event, tags);
+  async ({ event }: AddAlertParams) => {
+    const alert = await db.insertAlert(event);
 
     worker.addListener(alert);
 

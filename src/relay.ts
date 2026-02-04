@@ -1,16 +1,13 @@
 import { WebSocket } from "ws";
-import { decrypt } from "@welshman/signer";
-import { parseJson, ago, MINUTE, randomId } from "@welshman/lib";
+import { ago, MINUTE, randomId } from "@welshman/lib";
 import type { SignedEvent, Filter } from "@welshman/util";
 import {
   DELETE,
   CLIENT_AUTH,
   matchFilters,
   getTagValue,
-  getTagValues,
   verifyEvent,
 } from "@welshman/util";
-import { signer } from "./env.js";
 import { ALERT } from "./alert.js";
 import { getAlertsForPubkey } from "./database.js";
 import { addAlert, processDelete } from "./actions.js";
@@ -156,36 +153,7 @@ export class Connection {
   }
 
   private async handleAlertRequest(event: SignedEvent) {
-    const pubkey = await signer.getPubkey();
-
-    if (!getTagValues("p", event.tags).includes(pubkey)) {
-      return this.send(["OK", event.id, false, "Event must p-tag this relay"]);
-    }
-
-    let plaintext: string;
-    try {
-      plaintext = await decrypt(signer, event.pubkey, event.content);
-    } catch (e) {
-      return this.send([
-        "OK",
-        event.id,
-        false,
-        "Failed to decrypt event content",
-      ]);
-    }
-
-    const tags = parseJson(plaintext);
-
-    if (!Array.isArray(tags)) {
-      return this.send([
-        "OK",
-        event.id,
-        false,
-        "Encrypted tags are not an array",
-      ]);
-    }
-
-    const alert = await addAlert({ event, tags });
+    const alert = await addAlert({ event });
 
     this.send(["OK", event.id, true, ""]);
 

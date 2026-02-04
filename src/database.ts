@@ -92,7 +92,6 @@ export const migrate = () =>
             id TEXT NOT NULL,
             pubkey TEXT NOT NULL,
             created_at INTEGER NOT NULL,
-            tags JSON NOT NULL,
             event JSON NOT NULL
           )
         `,
@@ -109,23 +108,21 @@ export const migrate = () =>
 const parseAlert = (row: any): Alert | undefined => {
   if (row) {
     const event = JSON.parse(row.event);
-    const tags = JSON.parse(row.tags);
 
-    return { ...row, event, tags };
+    return { ...row, event };
   }
 };
 
-export async function insertAlert(event: SignedEvent, tags: string[][]) {
+export async function insertAlert(event: SignedEvent) {
   return assertResult(
     parseAlert(
       await get(
-        `INSERT INTO alerts (address, id, pubkey, created_at, tags, event)
-         VALUES (?, ?, ?, ?, ?, ?)
+        `INSERT INTO alerts (address, id, pubkey, created_at, event)
+         VALUES (?, ?, ?, ?, ?)
          ON CONFLICT(address) DO UPDATE SET
           id=excluded.id,
           pubkey=excluded.pubkey,
           created_at=excluded.created_at,
-          tags=excluded.tags,
           event=excluded.event
          RETURNING *`,
         [
@@ -133,7 +130,6 @@ export async function insertAlert(event: SignedEvent, tags: string[][]) {
           event.id,
           event.pubkey,
           event.created_at,
-          JSON.stringify(tags),
           JSON.stringify(event),
         ],
       ),
