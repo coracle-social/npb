@@ -1,4 +1,5 @@
 import "dotenv/config";
+import { makeSecret } from "@welshman/util";
 import { Nip01Signer } from "@welshman/signer";
 
 export const PORT = process.env.PORT || 3000;
