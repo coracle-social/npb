@@ -4,12 +4,9 @@ This is a minimal nostr relay implementation which accepts `kind 30390` [push su
 
 ## Configuration
 
-The following env variables are required:
+The following env variables are accepted:
 
 - `PORT` - the port to run the server on
 - `SECRET` - a hex secret key for the relay's identity
-
-The following env variables are optional:
-
 - `DATA_DIR` - a directory where the sqlite database should be stored (defaults to `.`)
 - `CORS_DOMAIN` - restrict domains able to connect (defaults to `*`)
