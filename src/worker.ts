@@ -30,17 +30,23 @@ const createListener = (alert: Alert) => {
       if (!matchFilters(ignore, event)) {
         console.log(`Forwarding event ${event.id} from ${relay}`, event);
 
-        const res = await fetch(callback, {
-          method: "POST",
-          body: JSON.stringify({ id: event.id, relay }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        try {
+          const res = await fetch(callback, {
+            method: "POST",
+            body: JSON.stringify({ id: event.id, relay }),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
 
-        if (!res.ok) {
-          deleteAlertByAddress(alert.address);
-          removeListener(alert);
+          if (!res.ok) {
+            deleteAlertByAddress(alert.address);
+            removeListener(alert);
+          }
+        } catch (e) {
+          const { hostname } = new URL(callback);
+
+          console.log(`Failed to fetch callback at ${hostname}`);
         }
       }
     },
