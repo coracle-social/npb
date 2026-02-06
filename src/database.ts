@@ -87,7 +87,7 @@ export const migrate = () =>
       db.serialize(async () => {
         await run(
           `
-          CREATE TABLE IF NOT EXISTS alerts (
+          CREATE TABLE IF NOT EXISTS alert (
             address TEXT PRIMARY KEY,
             id TEXT NOT NULL,
             pubkey TEXT NOT NULL,
@@ -117,7 +117,7 @@ export async function insertAlert(event: SignedEvent) {
   return assertResult(
     parseAlert(
       await get(
-        `INSERT INTO alerts (address, id, pubkey, created_at, event)
+        `INSERT INTO alert (address, id, pubkey, created_at, event)
          VALUES (?, ?, ?, ?, ?)
          ON CONFLICT(address) DO UPDATE SET
           id=excluded.id,
@@ -140,14 +140,14 @@ export async function insertAlert(event: SignedEvent) {
 export const deleteAlertByAddress = instrument(
   "database.deleteAlertByAddress",
   async (address: string) => {
-    await get(`DELETE FROM alerts WHERE address = ?`, [address]);
+    await get(`DELETE FROM alert WHERE address = ?`, [address]);
   },
 );
 
 export const deleteAlertById = instrument(
   "database.deleteAlertById",
   async (id: string) => {
-    await get(`DELETE FROM alerts WHERE id = ?`, [id]);
+    await get(`DELETE FROM alert WHERE id = ?`, [id]);
   },
 );
 
@@ -155,7 +155,7 @@ export const getAlertByAddress = instrument(
   "database.getAlertByAddress",
   async (address: string) => {
     return parseAlert(
-      await get(`SELECT * FROM alerts WHERE address = ?`, [address]),
+      await get(`SELECT * FROM alert WHERE address = ?`, [address]),
     );
   },
 );
@@ -163,14 +163,14 @@ export const getAlertByAddress = instrument(
 export const getAlertById = instrument(
   "database.getAlertById",
   async (id: string) => {
-    return parseAlert(await get(`SELECT * FROM alerts WHERE id = ?`, [id]));
+    return parseAlert(await get(`SELECT * FROM alert WHERE id = ?`, [id]));
   },
 );
 
 export const getAlertsForPubkey = instrument(
   "database.getAlertsForPubkey",
   async (pubkey: string) => {
-    const rows = await all(`SELECT * FROM alerts WHERE pubkey = ?`, [pubkey]);
+    const rows = await all(`SELECT * FROM alert WHERE pubkey = ?`, [pubkey]);
 
     return rows.map(parseAlert) as Alert[];
   },
@@ -179,7 +179,7 @@ export const getAlertsForPubkey = instrument(
 export const getActiveAlerts = instrument(
   "database.getActiveAlerts",
   async () => {
-    const rows = await all(`SELECT * FROM alerts`);
+    const rows = await all(`SELECT * FROM alert`);
 
     return rows.map(parseAlert) as Alert[];
   },
