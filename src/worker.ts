@@ -28,7 +28,7 @@ const createListener = (alert: Alert) => {
     signal,
     onEvent: async (event, relay) => {
       if (!matchFilters(ignore, event)) {
-        console.log(`Forwarding event ${event.id}`);
+        console.log(`Forwarding event ${event.id} from ${relay}`, event);
 
         const res = await fetch(callback, {
           method: "POST",
