@@ -28,7 +28,7 @@ const createListener = (alert: Alert) => {
     signal,
     onEvent: async (event, relay) => {
       if (!matchFilters(ignore, event)) {
-        console.log(`Forwarding event ${event.id} from ${relay}`, event);
+        console.log(`Forwarding event ${event.id} from ${relay}`);
 
         try {
           const res = await fetch(callback, {
