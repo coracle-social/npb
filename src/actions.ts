@@ -1,5 +1,5 @@
 import { instrument } from "succinct-async";
-import { getTagValues } from "@welshman/util";
+import { tagSpec, tagValues } from "@welshman/util";
 import { Alert, ALERT } from "./alert.js";
 import * as worker from "./worker.js";
 import * as db from "./database.js";
@@ -22,7 +22,7 @@ export type ProcessDeleteParams = Pick<Alert, "event">;
 export const processDelete = instrument(
   "actions.processDelete",
   async ({ event }: ProcessDeleteParams) => {
-    for (const address of getTagValues("a", event.tags)) {
+    for (const address of tagValues(tagSpec("a"), event.tags)) {
       const [kind, pubkey] = address.split(":");
 
       if (kind !== String(ALERT)) {
@@ -41,7 +41,7 @@ export const processDelete = instrument(
       }
     }
 
-    for (const id of getTagValues("e", event.tags)) {
+    for (const id of tagValues(tagSpec("e"), event.tags)) {
       const alert = await db.getAlertById(id);
 
       if (alert?.pubkey === event.pubkey) {

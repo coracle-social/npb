@@ -15,17 +15,17 @@ importers:
         specifier: ^1.3.0
         version: 1.3.0(@hono/node-server@1.19.9(hono@4.11.4))(hono@4.11.4)
       '@welshman/lib':
-        specifier: ^0.8.1
-        version: 0.8.1
+        specifier: ^0.11.2
+        version: 0.11.2
       '@welshman/net':
-        specifier: ^0.8.1
-        version: 0.8.1(@welshman/lib@0.8.1)(@welshman/util@0.8.1(@noble/curves@1.9.7)(@welshman/lib@0.8.1)(nostr-tools@2.19.4(typescript@5.9.3)))(ws@8.19.0)
+        specifier: ^0.11.2
+        version: 0.11.2(@welshman/lib@0.11.2)(@welshman/util@0.11.2(@noble/curves@2.0.1)(@welshman/lib@0.11.2)(nostr-tools@2.25.2(typescript@5.9.3)))(ws@8.19.0)
       '@welshman/signer':
-        specifier: ^0.8.1
-        version: 0.8.1(@noble/curves@1.9.7)(@noble/hashes@1.8.0)(@welshman/lib@0.8.1)(@welshman/net@0.8.1(@welshman/lib@0.8.1)(@welshman/util@0.8.1(@noble/curves@1.9.7)(@welshman/lib@0.8.1)(nostr-tools@2.19.4(typescript@5.9.3)))(ws@8.19.0))(@welshman/util@0.8.1(@noble/curves@1.9.7)(@welshman/lib@0.8.1)(nostr-tools@2.19.4(typescript@5.9.3)))(nostr-signer-capacitor-plugin@0.0.5(@capacitor/core@7.4.5))(nostr-tools@2.19.4(typescript@5.9.3))
+        specifier: ^0.11.2
+        version: 0.11.2(@noble/hashes@2.0.1)(@welshman/lib@0.11.2)(@welshman/net@0.11.2(@welshman/lib@0.11.2)(@welshman/util@0.11.2(@noble/curves@2.0.1)(@welshman/lib@0.11.2)(nostr-tools@2.25.2(typescript@5.9.3)))(ws@8.19.0))(@welshman/util@0.11.2(@noble/curves@2.0.1)(@welshman/lib@0.11.2)(nostr-tools@2.25.2(typescript@5.9.3)))(nostr-tools@2.25.2(typescript@5.9.3))
       '@welshman/util':
-        specifier: ^0.8.1
-        version: 0.8.1(@noble/curves@1.9.7)(@welshman/lib@0.8.1)(nostr-tools@2.19.4(typescript@5.9.3))
+        specifier: ^0.11.2
+        version: 0.11.2(@noble/curves@2.0.1)(@welshman/lib@0.11.2)(nostr-tools@2.25.2(typescript@5.9.3))
       dotenv:
         specifier: ^17.2.3
         version: 17.2.3
@@ -34,7 +34,7 @@ importers:
         version: 4.11.4
       sqlite3:
         specifier: ^5.1.7
-        version: 5.1.7
+        version: 5.1.7(supports-color@7.2.0)
       succinct-async:
         specifier: ^1.0.4
         version: 1.0.4
@@ -56,13 +56,13 @@ importers:
         version: 8.18.1
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.53.1
-        version: 8.53.1(@typescript-eslint/parser@8.53.1(eslint@9.39.2)(typescript@5.9.3))(eslint@9.39.2)(typescript@5.9.3)
+        version: 8.53.1(@typescript-eslint/parser@8.53.1(eslint@9.39.2(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3))(eslint@9.39.2(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)
       '@typescript-eslint/parser':
         specifier: ^8.53.1
-        version: 8.53.1(eslint@9.39.2)(typescript@5.9.3)
+        version: 8.53.1(eslint@9.39.2(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)
       eslint:
         specifier: ^9.39.2
-        version: 9.39.2
+        version: 9.39.2(supports-color@7.2.0)
       globals:
         specifier: ^17.0.0
         version: 17.0.0
@@ -74,9 +74,6 @@ importers:
         version: 5.9.3
 
 packages:
-
-  '@capacitor/core@7.4.5':
-    resolution: {integrity: sha512-JnUywi0WRbqm4QYoplNsMQ7KAVuyrQFha0dOH9YDVCyrVHUvPcvrnK+9j5elUMgy+pOh3ve+pk6BVoySr91c+A==}
 
   '@esbuild/aix-ppc64@0.27.2':
     resolution: {integrity: sha512-GZMB+a0mOMZs4MpDbj8RJp4cw+w1WV5NYD6xzgvzUJ5Ek2jerwfO2eADyI6ExDSUED+1X8aMbegahsJi+8mgpw==}
@@ -284,6 +281,7 @@ packages:
   '@hono/node-ws@1.3.0':
     resolution: {integrity: sha512-ju25YbbvLuXdqBCmLZLqnNYu1nbHIQjoyUqA8ApZOeL1k4skuiTcw5SW77/5SUYo2Xi2NVBJoVlfQurnKEp03Q==}
     engines: {node: '>=18.14.1'}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
     peerDependencies:
       '@hono/node-server': ^1.19.2
       hono: ^4.6.0
@@ -304,30 +302,17 @@ packages:
     resolution: {integrity: sha512-bV0Tgo9K4hfPCek+aMAn81RppFKv2ySDQeMoSZuvTASywNTnVJCArCZE2FWqpvIatKu7VMRLWlR1EazvVhDyhQ==}
     engines: {node: '>=18.18'}
 
-  '@noble/ciphers@0.5.3':
-    resolution: {integrity: sha512-B0+6IIHiqEs3BPMT0hcRmHvEj2QHOLu+uwt+tqDDeVd0oyVzh7BPrDcPjRnV1PV/5LaknXJJQvOuRGR0zQJz+w==}
+  '@noble/ciphers@2.1.1':
+    resolution: {integrity: sha512-bysYuiVfhxNJuldNXlFEitTVdNnYUc+XNJZd7Qm2a5j1vZHgY+fazadNFWFaMK/2vye0JVlxV3gHmC0WDfAOQw==}
+    engines: {node: '>= 20.19.0'}
 
-  '@noble/curves@1.1.0':
-    resolution: {integrity: sha512-091oBExgENk/kGj3AZmtBDMpxQPDtxQABR2B9lb1JbVTs6ytdzZNwvhxQ4MWasRNEzlbEH8jCWFCwhF/Obj5AA==}
+  '@noble/curves@2.0.1':
+    resolution: {integrity: sha512-vs1Az2OOTBiP4q0pwjW5aF0xp9n4MxVrmkFBxc6EKZc6ddYx5gaZiAsZoq0uRRXWbi3AT/sBqn05eRPtn1JCPw==}
+    engines: {node: '>= 20.19.0'}
 
-  '@noble/curves@1.2.0':
-    resolution: {integrity: sha512-oYclrNgRaM9SsBUBVbb8M6DTV7ZHRTKugureoYEncY5c65HOmRzvSiTE3y5CYaPYJA/GVkrhXEoF0M3Ya9PMnw==}
-
-  '@noble/curves@1.9.7':
-    resolution: {integrity: sha512-gbKGcRUYIjA3/zCCNaWDciTMFI0dCkvou3TL8Zmy5Nc7sJ47a0jtOeZoTaMxkuqRo9cRhjOdZJXegxYE5FN/xw==}
-    engines: {node: ^14.21.3 || >=16}
-
-  '@noble/hashes@1.3.1':
-    resolution: {integrity: sha512-EbqwksQwz9xDRGfDST86whPBgM65E0OH/pCgqW0GBVzO22bNE+NuIbeTb714+IfSjU3aRk47EUvXIb5bTsenKA==}
-    engines: {node: '>= 16'}
-
-  '@noble/hashes@1.3.2':
-    resolution: {integrity: sha512-MVC8EAQp7MvEcm30KWENFjgR+Mkmf+D189XJTkFIlwohU5hcBbn1ZkKq7KVTi2Hme3PMGF390DaL52beVrIihQ==}
-    engines: {node: '>= 16'}
-
-  '@noble/hashes@1.8.0':
-    resolution: {integrity: sha512-jCs9ldd7NwzpgXDIf6P3+NrHh9/sD6CQdxHyjQI+h/6rDNo88ypBxxz45UDuZHz9r3tNz7N/VInSVoVdtXEI4A==}
-    engines: {node: ^14.21.3 || >=16}
+  '@noble/hashes@2.0.1':
+    resolution: {integrity: sha512-XlOlEbQcE9fmuXxrVTXCTlG2nlRXa9Rj3rr5Ue/+tX+nmkgbX720YHh0VR3hBF9xDvwnb8D2shVGOwNx+ulArw==}
+    engines: {node: '>= 20.19.0'}
 
   '@npmcli/fs@1.1.1':
     resolution: {integrity: sha512-8KG5RD0GVP4ydEzRn/I4BNDuxDtqVbOdm8675T49OIG/NGhaK0pjPX7ZcDlvKYbA+ulvVK3ztfcF4uBdOxuJbQ==}
@@ -337,17 +322,17 @@ packages:
     engines: {node: '>=10'}
     deprecated: This functionality has been moved to @npmcli/fs
 
-  '@scure/base@1.1.1':
-    resolution: {integrity: sha512-ZxOhsSyxYwLJj3pLZCefNitxsj093tb2vq90mp2txoYeBqbcjDjqFhyM8eUjq/uFm6zJ+mUuqxlS2FkuSY1MTA==}
-
   '@scure/base@1.2.6':
     resolution: {integrity: sha512-g/nm5FgUa//MCj1gV09zTJTaM6KBAHqLN907YVQqf7zC49+DcO4B1so4ZX07Ef10Twr6nuqYEH9GEggFXA4Fmg==}
 
-  '@scure/bip32@1.3.1':
-    resolution: {integrity: sha512-osvveYtyzdEVbt3OfwwXFr4P2iVBL5u1Q3q4ONBfDY/UpOuXmOlbgwc1xECEboY8wIays8Yt6onaWMUdUbfl0A==}
+  '@scure/base@2.0.0':
+    resolution: {integrity: sha512-3E1kpuZginKkek01ovG8krQ0Z44E3DHPjc5S2rjJw9lZn3KSQOs8S7wqikF/AH7iRanHypj85uGyxk0XAyC37w==}
 
-  '@scure/bip39@1.2.1':
-    resolution: {integrity: sha512-Z3/Fsz1yr904dduJD0NpiyRHhRYHdcnyh73FZWiV+/qhWi83wNJ3NWolYqCEN+ZWsUz2TWwajJggcRE9r1zUYg==}
+  '@scure/bip32@2.0.1':
+    resolution: {integrity: sha512-4Md1NI5BzoVP+bhyJaY3K6yMesEFzNS1sE/cP+9nuvE7p/b0kx9XbpDHHFl8dHtufcbdHRUUQdRqLIPHN/s7yA==}
+
+  '@scure/bip39@2.0.1':
+    resolution: {integrity: sha512-PsxdFj/d2AcJcZDX1FXN3dDgitDDTmwf78rKZq1a6c1P1Nan1X/Sxc7667zU3U+AN60g7SxxP0YCVw2H/hBycg==}
 
   '@tootallnate/once@1.1.2':
     resolution: {integrity: sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==}
@@ -427,33 +412,31 @@ packages:
     resolution: {integrity: sha512-oy+wV7xDKFPRyNggmXuZQSBzvoLnpmJs+GhzRhPjrxl2b/jIlyjVokzm47CZCDUdXKr2zd7ZLodPfOBpOPyPlg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@welshman/lib@0.8.1':
-    resolution: {integrity: sha512-s4gRg4NXwDPiXgZVuAaZKS+rpnfYcFfqTqvw44hBTIWa1o12J4k7bqP7Oyi3r6Q901lW/6tvP7TInBWkdhm5Bw==}
+  '@welshman/lib@0.11.2':
+    resolution: {integrity: sha512-4Hm8tjfvysmiB5EMPnh2M9TBp0scfmZsY9H1X4f1qf75InBFycjoOc484XxQ8altyWwcMX71KzzB7LCdnH6Pqw==}
     engines: {node: '>=12.0.0'}
 
-  '@welshman/net@0.8.1':
-    resolution: {integrity: sha512-ugPs8YT6B2WNVA9A443x3t0DAQyLnzj1nueDTAsHLbB9/4nAJDsXy7EKKcw4rMVXyZyaWZlBdOIR59hKhw1uew==}
+  '@welshman/net@0.11.2':
+    resolution: {integrity: sha512-In+3uMmDzq5VPWV/zOLjTSGyu8Igu9FM2+icGN4DJkINETqgVK8rA9iGOJ7R4O88PPcMUFBJ7Wfu6MWkoNxNeg==}
     peerDependencies:
-      '@welshman/lib': 0.8.1
-      '@welshman/util': 0.8.1
+      '@welshman/lib': 0.11.2
+      '@welshman/util': 0.11.2
 
-  '@welshman/signer@0.8.1':
-    resolution: {integrity: sha512-lJJWuMZYcgjmVaFNSxnxR1Zs6PcWOaF+MNjEzakLNs8t1P1zBnKGhrmQrzPMFbdy+NcQvfVlmJOd97jN+VZUQw==}
+  '@welshman/signer@0.11.2':
+    resolution: {integrity: sha512-Cl1i8XarNR6JJE1rGMfG0uwOmc94iTlN5wg7DY0Qe00vnNhKqyVNQkSuN9HzXxp8IxqfNlTBxXE0rAtAvdvTqw==}
     peerDependencies:
-      '@noble/curves': ^1.9.7
-      '@noble/hashes': ^2.0.1
-      '@welshman/lib': 0.8.1
-      '@welshman/net': 0.8.1
-      '@welshman/util': 0.8.1
-      nostr-signer-capacitor-plugin: ~0.0.4
-      nostr-tools: ^2.19.4
+      '@noble/hashes': ~2.0.1
+      '@welshman/lib': 0.11.2
+      '@welshman/net': 0.11.2
+      '@welshman/util': 0.11.2
+      nostr-tools: ^2.22.0
 
-  '@welshman/util@0.8.1':
-    resolution: {integrity: sha512-eMXeZ6hGuZnCeliPKQqpADNBKBEiXCEZgHIVN3+9qRVx/RVO2YRfDGFde9MKt+PO1qspot91wlbjpgcJ2P9M8A==}
+  '@welshman/util@0.11.2':
+    resolution: {integrity: sha512-Ea7en1nUpLxFPkhGaqYjtApYHx7eLj+XFoRMH7IyxZNvIX2Vsxwu7qpzbERqP+H2fQUDM6viQZJlow9WNtxVyQ==}
     peerDependencies:
-      '@noble/curves': ^1.9.7
-      '@welshman/lib': 0.8.1
-      nostr-tools: ^2.19.4
+      '@noble/curves': ~2.0.1
+      '@welshman/lib': 0.11.2
+      nostr-tools: ^2.22.0
 
   abbrev@1.1.1:
     resolution: {integrity: sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==}
@@ -638,6 +621,7 @@ packages:
   eslint@9.39.2:
     resolution: {integrity: sha512-LEyamqS7W5HB3ujJyvi0HQK/dtVINZvd5mAAp9eT5S/ujByGjiZLCzPcHVzuXbpJDJF/cxwHlfceVUDZ2lnSTw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
     peerDependencies:
       jiti: '*'
@@ -741,7 +725,7 @@ packages:
 
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
-    deprecated: Glob versions prior to v9 are no longer supported
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
 
   globals@14.0.0:
     resolution: {integrity: sha512-oahGvuMGQlPw/ivIYBjVSrWAfWLBeku5tpPE2fOPLi+WHffIWbuh2tCjhyQhTBPMf5E9jDEH4FOmTYgYwbKwtQ==}
@@ -968,13 +952,8 @@ packages:
     engines: {node: '>=6'}
     hasBin: true
 
-  nostr-signer-capacitor-plugin@0.0.5:
-    resolution: {integrity: sha512-/EvqWz71HZ5cWmzvfXWTm48AWZtbeZDbOg3vLwXyXPjnIp1DR7Wurww/Mo41ORNu1DNPlqH20l7kIXKO6vR5og==}
-    peerDependencies:
-      '@capacitor/core': ^7.0.0
-
-  nostr-tools@2.19.4:
-    resolution: {integrity: sha512-qVLfoTpZegNYRJo5j+Oi6RPu0AwLP6jcvzcB3ySMnIT5DrAGNXfs5HNBspB/2HiGfH3GY+v6yXkTtcKSBQZwSg==}
+  nostr-tools@2.25.2:
+    resolution: {integrity: sha512-7JAx+brEPmqGz1yzaK9MOxvis/Nl1B38j9hVsBSRDMRmxk5XSc0+5LlPEYbzeiUyk41RURBDcfuMzmaT754HAg==}
     peerDependencies:
       typescript: '>=5.0.0'
     peerDependenciesMeta:
@@ -1031,6 +1010,7 @@ packages:
   prebuild-install@7.1.3:
     resolution: {integrity: sha512-8Mf2cbV7x1cXPUILADGI3wuhfqWvtiLA1iclTDbFRZkgRQS0NqsPZphna9V+HyTEadheuPmjaJMsbzKQFOzLug==}
     engines: {node: '>=10'}
+    deprecated: No longer maintained. Please contact the author of the relevant native addon; alternatives are available.
     hasBin: true
 
   prelude-ls@1.2.1:
@@ -1171,7 +1151,7 @@ packages:
   tar@6.2.1:
     resolution: {integrity: sha512-DZ4yORTwrbTj/7MZYq2w+/ZFdI6OZ/f9SFHR+71gIVUZhOQPHzVCLpvRnPgyaMpfWxxk/4ONva3GQSyNIKRv6A==}
     engines: {node: '>=10'}
-    deprecated: Old versions of tar are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exhorbitant rates) by contacting i@izs.me
+    deprecated: Old versions of tar are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
 
   tinyglobby@0.2.15:
     resolution: {integrity: sha512-j2Zq4NyQYG5XMST4cbs02Ak8iJUdxRM0XI5QyxXuZOzKOINmWurp3smXu3y5wDcJrptwpSjgXHzIQxR0omXljQ==}
@@ -1182,9 +1162,6 @@ packages:
     engines: {node: '>=18.12'}
     peerDependencies:
       typescript: '>=4.8.4'
-
-  tslib@2.8.1:
-    resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
 
   tsx@4.21.0:
     resolution: {integrity: sha512-5C1sg4USs1lfG0GFb2RLXsdpXqBSEhAaA/0kPL01wxzpMqLILNxIxIOKiILz+cdg/pLnOUxFYOR5yhHU666wbw==}
@@ -1253,10 +1230,6 @@ packages:
     engines: {node: '>=10'}
 
 snapshots:
-
-  '@capacitor/core@7.4.5':
-    dependencies:
-      tslib: 2.8.1
 
   '@esbuild/aix-ppc64@0.27.2':
     optional: true
@@ -1336,17 +1309,17 @@ snapshots:
   '@esbuild/win32-x64@0.27.2':
     optional: true
 
-  '@eslint-community/eslint-utils@4.9.1(eslint@9.39.2)':
+  '@eslint-community/eslint-utils@4.9.1(eslint@9.39.2(supports-color@7.2.0))':
     dependencies:
-      eslint: 9.39.2
+      eslint: 9.39.2(supports-color@7.2.0)
       eslint-visitor-keys: 3.4.3
 
   '@eslint-community/regexpp@4.12.2': {}
 
-  '@eslint/config-array@0.21.1':
+  '@eslint/config-array@0.21.1(supports-color@7.2.0)':
     dependencies:
       '@eslint/object-schema': 2.1.7
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@7.2.0)
       minimatch: 3.1.2
     transitivePeerDependencies:
       - supports-color
@@ -1359,10 +1332,10 @@ snapshots:
     dependencies:
       '@types/json-schema': 7.0.15
 
-  '@eslint/eslintrc@3.3.3':
+  '@eslint/eslintrc@3.3.3(supports-color@7.2.0)':
     dependencies:
       ajv: 6.12.6
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@7.2.0)
       espree: 10.4.0
       globals: 14.0.0
       ignore: 5.3.2
@@ -1409,25 +1382,13 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.3': {}
 
-  '@noble/ciphers@0.5.3': {}
+  '@noble/ciphers@2.1.1': {}
 
-  '@noble/curves@1.1.0':
+  '@noble/curves@2.0.1':
     dependencies:
-      '@noble/hashes': 1.3.1
+      '@noble/hashes': 2.0.1
 
-  '@noble/curves@1.2.0':
-    dependencies:
-      '@noble/hashes': 1.3.2
-
-  '@noble/curves@1.9.7':
-    dependencies:
-      '@noble/hashes': 1.8.0
-
-  '@noble/hashes@1.3.1': {}
-
-  '@noble/hashes@1.3.2': {}
-
-  '@noble/hashes@1.8.0': {}
+  '@noble/hashes@2.0.1': {}
 
   '@npmcli/fs@1.1.1':
     dependencies:
@@ -1441,20 +1402,20 @@ snapshots:
       rimraf: 3.0.2
     optional: true
 
-  '@scure/base@1.1.1': {}
-
   '@scure/base@1.2.6': {}
 
-  '@scure/bip32@1.3.1':
-    dependencies:
-      '@noble/curves': 1.1.0
-      '@noble/hashes': 1.3.2
-      '@scure/base': 1.1.1
+  '@scure/base@2.0.0': {}
 
-  '@scure/bip39@1.2.1':
+  '@scure/bip32@2.0.1':
     dependencies:
-      '@noble/hashes': 1.3.2
-      '@scure/base': 1.1.1
+      '@noble/curves': 2.0.1
+      '@noble/hashes': 2.0.1
+      '@scure/base': 2.0.0
+
+  '@scure/bip39@2.0.1':
+    dependencies:
+      '@noble/hashes': 2.0.1
+      '@scure/base': 2.0.0
 
   '@tootallnate/once@1.1.2':
     optional: true
@@ -1473,15 +1434,15 @@ snapshots:
     dependencies:
       '@types/node': 25.0.9
 
-  '@typescript-eslint/eslint-plugin@8.53.1(@typescript-eslint/parser@8.53.1(eslint@9.39.2)(typescript@5.9.3))(eslint@9.39.2)(typescript@5.9.3)':
+  '@typescript-eslint/eslint-plugin@8.53.1(@typescript-eslint/parser@8.53.1(eslint@9.39.2(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3))(eslint@9.39.2(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)':
     dependencies:
       '@eslint-community/regexpp': 4.12.2
-      '@typescript-eslint/parser': 8.53.1(eslint@9.39.2)(typescript@5.9.3)
+      '@typescript-eslint/parser': 8.53.1(eslint@9.39.2(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)
       '@typescript-eslint/scope-manager': 8.53.1
-      '@typescript-eslint/type-utils': 8.53.1(eslint@9.39.2)(typescript@5.9.3)
-      '@typescript-eslint/utils': 8.53.1(eslint@9.39.2)(typescript@5.9.3)
+      '@typescript-eslint/type-utils': 8.53.1(eslint@9.39.2(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)
+      '@typescript-eslint/utils': 8.53.1(eslint@9.39.2(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)
       '@typescript-eslint/visitor-keys': 8.53.1
-      eslint: 9.39.2
+      eslint: 9.39.2(supports-color@7.2.0)
       ignore: 7.0.5
       natural-compare: 1.4.0
       ts-api-utils: 2.4.0(typescript@5.9.3)
@@ -1489,23 +1450,23 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/parser@8.53.1(eslint@9.39.2)(typescript@5.9.3)':
+  '@typescript-eslint/parser@8.53.1(eslint@9.39.2(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)':
     dependencies:
       '@typescript-eslint/scope-manager': 8.53.1
       '@typescript-eslint/types': 8.53.1
-      '@typescript-eslint/typescript-estree': 8.53.1(typescript@5.9.3)
+      '@typescript-eslint/typescript-estree': 8.53.1(supports-color@7.2.0)(typescript@5.9.3)
       '@typescript-eslint/visitor-keys': 8.53.1
-      debug: 4.4.3
-      eslint: 9.39.2
+      debug: 4.4.3(supports-color@7.2.0)
+      eslint: 9.39.2(supports-color@7.2.0)
       typescript: 5.9.3
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/project-service@8.53.1(typescript@5.9.3)':
+  '@typescript-eslint/project-service@8.53.1(supports-color@7.2.0)(typescript@5.9.3)':
     dependencies:
       '@typescript-eslint/tsconfig-utils': 8.53.1(typescript@5.9.3)
       '@typescript-eslint/types': 8.53.1
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@7.2.0)
       typescript: 5.9.3
     transitivePeerDependencies:
       - supports-color
@@ -1519,13 +1480,13 @@ snapshots:
     dependencies:
       typescript: 5.9.3
 
-  '@typescript-eslint/type-utils@8.53.1(eslint@9.39.2)(typescript@5.9.3)':
+  '@typescript-eslint/type-utils@8.53.1(eslint@9.39.2(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)':
     dependencies:
       '@typescript-eslint/types': 8.53.1
-      '@typescript-eslint/typescript-estree': 8.53.1(typescript@5.9.3)
-      '@typescript-eslint/utils': 8.53.1(eslint@9.39.2)(typescript@5.9.3)
-      debug: 4.4.3
-      eslint: 9.39.2
+      '@typescript-eslint/typescript-estree': 8.53.1(supports-color@7.2.0)(typescript@5.9.3)
+      '@typescript-eslint/utils': 8.53.1(eslint@9.39.2(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)
+      debug: 4.4.3(supports-color@7.2.0)
+      eslint: 9.39.2(supports-color@7.2.0)
       ts-api-utils: 2.4.0(typescript@5.9.3)
       typescript: 5.9.3
     transitivePeerDependencies:
@@ -1533,13 +1494,13 @@ snapshots:
 
   '@typescript-eslint/types@8.53.1': {}
 
-  '@typescript-eslint/typescript-estree@8.53.1(typescript@5.9.3)':
+  '@typescript-eslint/typescript-estree@8.53.1(supports-color@7.2.0)(typescript@5.9.3)':
     dependencies:
-      '@typescript-eslint/project-service': 8.53.1(typescript@5.9.3)
+      '@typescript-eslint/project-service': 8.53.1(supports-color@7.2.0)(typescript@5.9.3)
       '@typescript-eslint/tsconfig-utils': 8.53.1(typescript@5.9.3)
       '@typescript-eslint/types': 8.53.1
       '@typescript-eslint/visitor-keys': 8.53.1
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@7.2.0)
       minimatch: 9.0.5
       semver: 7.7.3
       tinyglobby: 0.2.15
@@ -1548,13 +1509,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/utils@8.53.1(eslint@9.39.2)(typescript@5.9.3)':
+  '@typescript-eslint/utils@8.53.1(eslint@9.39.2(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)':
     dependencies:
-      '@eslint-community/eslint-utils': 4.9.1(eslint@9.39.2)
+      '@eslint-community/eslint-utils': 4.9.1(eslint@9.39.2(supports-color@7.2.0))
       '@typescript-eslint/scope-manager': 8.53.1
       '@typescript-eslint/types': 8.53.1
-      '@typescript-eslint/typescript-estree': 8.53.1(typescript@5.9.3)
-      eslint: 9.39.2
+      '@typescript-eslint/typescript-estree': 8.53.1(supports-color@7.2.0)(typescript@5.9.3)
+      eslint: 9.39.2(supports-color@7.2.0)
       typescript: 5.9.3
     transitivePeerDependencies:
       - supports-color
@@ -1564,38 +1525,36 @@ snapshots:
       '@typescript-eslint/types': 8.53.1
       eslint-visitor-keys: 4.2.1
 
-  '@welshman/lib@0.8.1':
+  '@welshman/lib@0.11.2':
     dependencies:
       '@scure/base': 1.2.6
       '@types/events': 3.0.3
       events: 3.3.0
 
-  '@welshman/net@0.8.1(@welshman/lib@0.8.1)(@welshman/util@0.8.1(@noble/curves@1.9.7)(@welshman/lib@0.8.1)(nostr-tools@2.19.4(typescript@5.9.3)))(ws@8.19.0)':
+  '@welshman/net@0.11.2(@welshman/lib@0.11.2)(@welshman/util@0.11.2(@noble/curves@2.0.1)(@welshman/lib@0.11.2)(nostr-tools@2.25.2(typescript@5.9.3)))(ws@8.19.0)':
     dependencies:
-      '@welshman/lib': 0.8.1
-      '@welshman/util': 0.8.1(@noble/curves@1.9.7)(@welshman/lib@0.8.1)(nostr-tools@2.19.4(typescript@5.9.3))
+      '@welshman/lib': 0.11.2
+      '@welshman/util': 0.11.2(@noble/curves@2.0.1)(@welshman/lib@0.11.2)(nostr-tools@2.25.2(typescript@5.9.3))
       events: 3.3.0
       isomorphic-ws: 5.0.0(ws@8.19.0)
     transitivePeerDependencies:
       - ws
 
-  '@welshman/signer@0.8.1(@noble/curves@1.9.7)(@noble/hashes@1.8.0)(@welshman/lib@0.8.1)(@welshman/net@0.8.1(@welshman/lib@0.8.1)(@welshman/util@0.8.1(@noble/curves@1.9.7)(@welshman/lib@0.8.1)(nostr-tools@2.19.4(typescript@5.9.3)))(ws@8.19.0))(@welshman/util@0.8.1(@noble/curves@1.9.7)(@welshman/lib@0.8.1)(nostr-tools@2.19.4(typescript@5.9.3)))(nostr-signer-capacitor-plugin@0.0.5(@capacitor/core@7.4.5))(nostr-tools@2.19.4(typescript@5.9.3))':
+  '@welshman/signer@0.11.2(@noble/hashes@2.0.1)(@welshman/lib@0.11.2)(@welshman/net@0.11.2(@welshman/lib@0.11.2)(@welshman/util@0.11.2(@noble/curves@2.0.1)(@welshman/lib@0.11.2)(nostr-tools@2.25.2(typescript@5.9.3)))(ws@8.19.0))(@welshman/util@0.11.2(@noble/curves@2.0.1)(@welshman/lib@0.11.2)(nostr-tools@2.25.2(typescript@5.9.3)))(nostr-tools@2.25.2(typescript@5.9.3))':
     dependencies:
-      '@noble/curves': 1.9.7
-      '@noble/hashes': 1.8.0
-      '@welshman/lib': 0.8.1
-      '@welshman/net': 0.8.1(@welshman/lib@0.8.1)(@welshman/util@0.8.1(@noble/curves@1.9.7)(@welshman/lib@0.8.1)(nostr-tools@2.19.4(typescript@5.9.3)))(ws@8.19.0)
-      '@welshman/util': 0.8.1(@noble/curves@1.9.7)(@welshman/lib@0.8.1)(nostr-tools@2.19.4(typescript@5.9.3))
-      nostr-signer-capacitor-plugin: 0.0.5(@capacitor/core@7.4.5)
-      nostr-tools: 2.19.4(typescript@5.9.3)
+      '@noble/hashes': 2.0.1
+      '@welshman/lib': 0.11.2
+      '@welshman/net': 0.11.2(@welshman/lib@0.11.2)(@welshman/util@0.11.2(@noble/curves@2.0.1)(@welshman/lib@0.11.2)(nostr-tools@2.25.2(typescript@5.9.3)))(ws@8.19.0)
+      '@welshman/util': 0.11.2(@noble/curves@2.0.1)(@welshman/lib@0.11.2)(nostr-tools@2.25.2(typescript@5.9.3))
+      nostr-tools: 2.25.2(typescript@5.9.3)
 
-  '@welshman/util@0.8.1(@noble/curves@1.9.7)(@welshman/lib@0.8.1)(nostr-tools@2.19.4(typescript@5.9.3))':
+  '@welshman/util@0.11.2(@noble/curves@2.0.1)(@welshman/lib@0.11.2)(nostr-tools@2.25.2(typescript@5.9.3))':
     dependencies:
-      '@noble/curves': 1.9.7
+      '@noble/curves': 2.0.1
       '@types/ws': 8.18.1
-      '@welshman/lib': 0.8.1
+      '@welshman/lib': 0.11.2
       js-base64: 3.7.8
-      nostr-tools: 2.19.4(typescript@5.9.3)
+      nostr-tools: 2.25.2(typescript@5.9.3)
       nostr-wasm: 0.1.0
 
   abbrev@1.1.1:
@@ -1607,9 +1566,9 @@ snapshots:
 
   acorn@8.15.0: {}
 
-  agent-base@6.0.2:
+  agent-base@6.0.2(supports-color@7.2.0):
     dependencies:
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@7.2.0)
     transitivePeerDependencies:
       - supports-color
     optional: true
@@ -1736,9 +1695,11 @@ snapshots:
       shebang-command: 2.0.0
       which: 2.0.2
 
-  debug@4.4.3:
+  debug@4.4.3(supports-color@7.2.0):
     dependencies:
       ms: 2.1.3
+    optionalDependencies:
+      supports-color: 7.2.0
 
   decompress-response@6.0.0:
     dependencies:
@@ -1813,14 +1774,14 @@ snapshots:
 
   eslint-visitor-keys@4.2.1: {}
 
-  eslint@9.39.2:
+  eslint@9.39.2(supports-color@7.2.0):
     dependencies:
-      '@eslint-community/eslint-utils': 4.9.1(eslint@9.39.2)
+      '@eslint-community/eslint-utils': 4.9.1(eslint@9.39.2(supports-color@7.2.0))
       '@eslint-community/regexpp': 4.12.2
-      '@eslint/config-array': 0.21.1
+      '@eslint/config-array': 0.21.1(supports-color@7.2.0)
       '@eslint/config-helpers': 0.4.2
       '@eslint/core': 0.17.0
-      '@eslint/eslintrc': 3.3.3
+      '@eslint/eslintrc': 3.3.3(supports-color@7.2.0)
       '@eslint/js': 9.39.2
       '@eslint/plugin-kit': 0.4.1
       '@humanfs/node': 0.16.7
@@ -1830,7 +1791,7 @@ snapshots:
       ajv: 6.12.6
       chalk: 4.1.2
       cross-spawn: 7.0.6
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@7.2.0)
       escape-string-regexp: 4.0.0
       eslint-scope: 8.4.0
       eslint-visitor-keys: 4.2.1
@@ -1963,19 +1924,19 @@ snapshots:
   http-cache-semantics@4.2.0:
     optional: true
 
-  http-proxy-agent@4.0.1:
+  http-proxy-agent@4.0.1(supports-color@7.2.0):
     dependencies:
       '@tootallnate/once': 1.1.2
-      agent-base: 6.0.2
-      debug: 4.4.3
+      agent-base: 6.0.2(supports-color@7.2.0)
+      debug: 4.4.3(supports-color@7.2.0)
     transitivePeerDependencies:
       - supports-color
     optional: true
 
-  https-proxy-agent@5.0.1:
+  https-proxy-agent@5.0.1(supports-color@7.2.0):
     dependencies:
-      agent-base: 6.0.2
-      debug: 4.4.3
+      agent-base: 6.0.2(supports-color@7.2.0)
+      debug: 4.4.3(supports-color@7.2.0)
     transitivePeerDependencies:
       - supports-color
     optional: true
@@ -2072,13 +2033,13 @@ snapshots:
       yallist: 4.0.0
     optional: true
 
-  make-fetch-happen@9.1.0:
+  make-fetch-happen@9.1.0(supports-color@7.2.0):
     dependencies:
       agentkeepalive: 4.6.0
       cacache: 15.3.0
       http-cache-semantics: 4.2.0
-      http-proxy-agent: 4.0.1
-      https-proxy-agent: 5.0.1
+      http-proxy-agent: 4.0.1(supports-color@7.2.0)
+      https-proxy-agent: 5.0.1(supports-color@7.2.0)
       is-lambda: 1.0.1
       lru-cache: 6.0.0
       minipass: 3.3.6
@@ -2088,7 +2049,7 @@ snapshots:
       minipass-pipeline: 1.2.4
       negotiator: 0.6.4
       promise-retry: 2.0.1
-      socks-proxy-agent: 6.2.1
+      socks-proxy-agent: 6.2.1(supports-color@7.2.0)
       ssri: 8.0.1
     transitivePeerDependencies:
       - bluebird
@@ -2166,12 +2127,12 @@ snapshots:
 
   node-addon-api@7.1.1: {}
 
-  node-gyp@8.4.1:
+  node-gyp@8.4.1(supports-color@7.2.0):
     dependencies:
       env-paths: 2.2.1
       glob: 7.2.3
       graceful-fs: 4.2.11
-      make-fetch-happen: 9.1.0
+      make-fetch-happen: 9.1.0(supports-color@7.2.0)
       nopt: 5.0.0
       npmlog: 6.0.2
       rimraf: 3.0.2
@@ -2188,18 +2149,14 @@ snapshots:
       abbrev: 1.1.1
     optional: true
 
-  nostr-signer-capacitor-plugin@0.0.5(@capacitor/core@7.4.5):
+  nostr-tools@2.25.2(typescript@5.9.3):
     dependencies:
-      '@capacitor/core': 7.4.5
-
-  nostr-tools@2.19.4(typescript@5.9.3):
-    dependencies:
-      '@noble/ciphers': 0.5.3
-      '@noble/curves': 1.2.0
-      '@noble/hashes': 1.3.1
-      '@scure/base': 1.1.1
-      '@scure/bip32': 1.3.1
-      '@scure/bip39': 1.2.1
+      '@noble/ciphers': 2.1.1
+      '@noble/curves': 2.0.1
+      '@noble/hashes': 2.0.1
+      '@scure/base': 2.0.0
+      '@scure/bip32': 2.0.1
+      '@scure/bip39': 2.0.1
       nostr-wasm: 0.1.0
     optionalDependencies:
       typescript: 5.9.3
@@ -2343,10 +2300,10 @@ snapshots:
   smart-buffer@4.2.0:
     optional: true
 
-  socks-proxy-agent@6.2.1:
+  socks-proxy-agent@6.2.1(supports-color@7.2.0):
     dependencies:
-      agent-base: 6.0.2
-      debug: 4.4.3
+      agent-base: 6.0.2(supports-color@7.2.0)
+      debug: 4.4.3(supports-color@7.2.0)
       socks: 2.8.7
     transitivePeerDependencies:
       - supports-color
@@ -2358,14 +2315,14 @@ snapshots:
       smart-buffer: 4.2.0
     optional: true
 
-  sqlite3@5.1.7:
+  sqlite3@5.1.7(supports-color@7.2.0):
     dependencies:
       bindings: 1.5.0
       node-addon-api: 7.1.1
       prebuild-install: 7.1.3
       tar: 6.2.1
     optionalDependencies:
-      node-gyp: 8.4.1
+      node-gyp: 8.4.1(supports-color@7.2.0)
     transitivePeerDependencies:
       - bluebird
       - supports-color
@@ -2433,8 +2390,6 @@ snapshots:
   ts-api-utils@2.4.0(typescript@5.9.3):
     dependencies:
       typescript: 5.9.3
-
-  tslib@2.8.1: {}
 
   tsx@4.21.0:
     dependencies:

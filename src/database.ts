@@ -4,13 +4,7 @@ import sqlite3 from "sqlite3";
 import crypto from "crypto";
 import { instrument } from "succinct-async";
 import { parseJson, now } from "@welshman/lib";
-import {
-  SignedEvent,
-  getTagValue,
-  getTagValues,
-  getTags,
-  getAddress,
-} from "@welshman/util";
+import { SignedEvent, getAddress } from "@welshman/util";
 import { DATA_DIR } from "./env.js";
 import type { Alert } from "./alert.js";
 

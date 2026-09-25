@@ -5,7 +5,8 @@ import {
   DELETE,
   CLIENT_AUTH,
   matchFilters,
-  getTagValue,
+  tagSpec,
+  tagValue,
   verifyEvent,
 } from "@welshman/util";
 import { ALERT } from "./alert.js";
@@ -94,11 +95,11 @@ export class Connection {
       ]);
     }
 
-    if (getTagValue("challenge", event.tags) !== this.auth.challenge) {
+    if (tagValue(tagSpec("challenge"), event.tags) !== this.auth.challenge) {
       return this.send(["OK", event.id, false, "invalid challenge"]);
     }
 
-    if (!getTagValue("relay", event.tags)?.includes(this._hostname)) {
+    if (!tagValue(tagSpec("relay"), event.tags)?.includes(this._hostname)) {
       return this.send(["OK", event.id, false, "invalid relay"]);
     }
 

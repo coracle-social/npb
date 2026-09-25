@@ -1,24 +1,28 @@
 import { assoc, parseJson, removeUndefined } from "@welshman/lib";
-import { request } from "@welshman/net";
+import { Pool, request } from "@welshman/net";
 import {
-  getTagValues,
+  tagSpec,
+  tagValues,
+  relayTags,
   matchFilters,
-  getTagValue,
-  normalizeRelayUrl,
+  tagValue,
 } from "@welshman/util";
 import { deleteAlertByAddress } from "./database.js";
 import { Alert } from "./alert.js";
-import { pool } from "./pool.js";
+
+const pool = new Pool();
 
 const listenersByAddress = new Map();
 
 const createListener = (alert: Alert) => {
   const { tags } = alert.event;
-  const callback = getTagValue("callback", tags)!;
-  const relays = getTagValues("relay", tags).map(normalizeRelayUrl);
-  const ignore = removeUndefined(getTagValues("ignore", tags).map(parseJson));
+  const callback = tagValue(tagSpec("callback"), tags)!;
+  const relays = tagValues(relayTags("relay"), tags);
+  const ignore = removeUndefined(
+    tagValues(tagSpec("ignore"), tags).map(parseJson),
+  );
   const filters = removeUndefined(
-    getTagValues("filter", tags).map(parseJson),
+    tagValues(tagSpec("filter"), tags).map(parseJson),
   ).map(assoc("limit", 0));
   const controller = new AbortController();
   const { signal } = controller;
