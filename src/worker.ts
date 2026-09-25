@@ -8,6 +8,7 @@ import {
 } from "@welshman/util";
 import { deleteAlertByAddress } from "./database.js";
 import { Alert } from "./alert.js";
+import { pool } from "./pool.js";
 
 const listenersByAddress = new Map();
 
@@ -26,6 +27,7 @@ const createListener = (alert: Alert) => {
     relays,
     filters,
     signal,
+    context: { pool },
     onEvent: async (event, relay) => {
       if (!matchFilters(ignore, event)) {
         console.log(`Forwarding event ${event.id} from ${relay}`);
