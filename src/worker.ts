@@ -4,10 +4,12 @@ import {
   tagSpec,
   tagValues,
   relayTags,
+  matchTag,
   matchFilters,
   tagValue,
 } from "@welshman/util";
 import { deleteAlertByAddress } from "./database.js";
+import { sendPush } from "./callback.js";
 import { Alert } from "./alert.js";
 
 const pool = new Pool();
@@ -17,6 +19,7 @@ const listenersByAddress = new Map();
 const createListener = (alert: Alert) => {
   const { tags } = alert.event;
   const callback = tagValue(tagSpec("callback"), tags)!;
+  const shouldIncludeEvent = Boolean(matchTag(tagSpec("include_event"), tags));
   const relays = tagValues(relayTags("relay"), tags);
   const ignore = removeUndefined(
     tagValues(tagSpec("ignore"), tags).map(parseJson),
@@ -37,17 +40,20 @@ const createListener = (alert: Alert) => {
         console.log(`Forwarding event ${event.id} from ${relay}`);
 
         try {
-          const res = await fetch(callback, {
-            method: "POST",
-            body: JSON.stringify({ id: event.id, relay }),
-            headers: {
-              "Content-Type": "application/json",
-            },
+          const res = await sendPush(callback, {
+            id: event.id,
+            relay,
+            event: shouldIncludeEvent ? event : undefined,
           });
 
-          if (!res.ok) {
-            deleteAlertByAddress(alert.address);
+          // Only a callback that says the subscription is gone gets it deleted, not one having a bad minute.
+          if (res.status === 404) {
+            await deleteAlertByAddress(alert.address);
             removeListener(alert);
+          } else if (!res.ok) {
+            console.log(
+              `Callback at ${new URL(callback).host} answered ${res.status}`,
+            );
           }
         } catch (e) {
           const { hostname } = new URL(callback);

@@ -16,15 +16,16 @@
 		"@welshman/signer": "^0.11.2",
 		"@welshman/util": "^0.11.2",
 		"dotenv": "^17.2.3",
+		"guarded-fetch": "^0.3.0",
 		"hono": "^4.11.4",
 		"sqlite3": "^5.1.7",
 		"succinct-async": "^1.0.4",
-		"tsx": "^4.21.0",
+		"tsx": "^4.23.15",
 		"ws": "^8.19.0"
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.39.2",
-		"@types/node": "^25.0.9",
+		"@types/node": "^26.6.6",
 		"@types/ws": "^8.18.1",
 		"@typescript-eslint/eslint-plugin": "^8.53.1",
 		"@typescript-eslint/parser": "^8.53.1",

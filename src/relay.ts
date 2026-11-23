@@ -5,12 +5,14 @@ import {
   DELETE,
   CLIENT_AUTH,
   matchFilters,
+  getAddress,
   tagSpec,
   tagValue,
   verifyEvent,
 } from "@welshman/util";
 import { ALERT } from "./alert.js";
-import { getAlertsForPubkey } from "./database.js";
+import { getAlertByAddress, getAlertsForPubkey } from "./database.js";
+import { verifyCallback } from "./callback.js";
 import { addAlert, processDelete } from "./actions.js";
 
 type AuthState = {
@@ -154,6 +156,27 @@ export class Connection {
   }
 
   private async handleAlertRequest(event: SignedEvent) {
+    const callback = tagValue(tagSpec("callback"), event.tags);
+
+    if (!callback) {
+      return this.send(["OK", event.id, false, "invalid: missing callback"]);
+    }
+
+    // Clients republish on every settings change, so only a new or moved callback is verified.
+    const existing = await getAlertByAddress(getAddress(event));
+    const isCallbackUnchanged =
+      existing &&
+      tagValue(tagSpec("callback"), existing.event.tags) === callback;
+
+    if (!isCallbackUnchanged && !(await verifyCallback(callback))) {
+      return this.send([
+        "OK",
+        event.id,
+        false,
+        "invalid: callback did not confirm the challenge",
+      ]);
+    }
+
     const alert = await addAlert({ event });
 
     this.send(["OK", event.id, true, ""]);
